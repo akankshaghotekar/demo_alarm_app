@@ -1,3 +1,4 @@
+import 'package:demo_alarm_app/qr_scan_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -52,12 +53,21 @@ class _AlarmDemoState extends State<AlarmDemo> {
               child: const Text('Start Alarm'),
             ),
             const SizedBox(height: 20),
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            //   onPressed: () async {
+            //     await channel.invokeMethod('stopAlarm');
+            //   },
+            //   child: const Text('Stop Alarm'),
+            // ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-              onPressed: () async {
-                await channel.invokeMethod('stopAlarm');
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => QrScanScreen()),
+                );
               },
-              child: const Text('Stop Alarm'),
+              child: const Text('Open QR Scanner'),
             ),
           ],
         ),
